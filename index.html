@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WWII Flight Missions</title>
+    <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+</head>
+<body>
+ <div class = "header" >
+    <style>.embed-container {position: relative; padding-bottom: 80%; height: 0; max-width: 100%;} .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;} small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;}</style><div class="embed-container"><iframe width="500" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="WWII FLIGHT MISSIONS 1939-1945" src="//www.arcgis.com/apps/Embed/index.html?webmap=b94b5e14c77c444790742ec0a2ee368c&extent=-180,-69.1631,180,79.1711&zoom=true&previewImage=false&scale=true&legend=true&disable_scroll=false&theme=dark"></iframe></div>
+  </div>
+  <section class = "screen">
+   <div class = "content">
+    <h1>WWII Flight Missions</h1>
+     <p>Military aviation during WWII saw major technological advancements and redefined how war was fought from the sky. The Department of Defense released Theater History of Operations for historic aerial bombings from WWI through Vietnam. </p>
+     <p>The dataset includes an abundance of information including allied countries that carried out the airstrikes, the countries and territorries that were targeted, the aircraft used, and the ordinance used in the strikes.</p>
+     <p>Below is an interactive map of the number of missions that targeted each country. In total there were 178,281 missions flown during the war. The United States flew 53% of those missions, followed by Great Britian, New Zealand, then Australia. More than 61,000 missions targeted Germany, specifically Berlin, followed by Italy, France, then Burma, which is now Myanmar. The B17 Bomber flew the majority of the misions (24%). Followed by the B24, B25, A20, then B26.</p>
+     <p>One interesting note from the map is the airstikes carried out on American soil in the Aluetian Islands campaign, which is a territory in Alaska and was part of the Pacific Campaign.</p>
+   </div>
+  </section>
+ <div class = "globe svg-globe">
+  <div id = "globe">
+      <script type="text/javascript"> var imagePath = "{{ url_for('static', filename='world_states_green.jpg') }}" </script>
+  </div>
+ </div>
+ <section class="screen">
+  <div class="content">
+   <p>The charts below offer insight into the different types of aircraft used in the war and the role they played. In total there were 71 different types of aircraft used by the allies the chart below shows the top 10 most used aircraft. As mentioned before the Boeing B17 Bomber "Flying Fortress" was the most used aircraft during in WWII. Interestingly, the Wellington, a British twin engine bomber designed in the 1930's, was the sixth most used aircraft. As you'll see in another chart the British were the only Allied country to fly missions at the start of the war.</p>
+   <p>The second chart below shows a breakdown of flight missions year over year. As you can see 61% of all flight missions flown in WWII occurred in 1944. WWII ended on September 2, 1945 and obviously, the nuclear bombings by the U.S. on Japan played a significant role in ending the war, but it seems highly possible the dramatic increase in bombings in 1944 also played a role in Germany's retreat and ending the conflict.</p>
+  </div>
+ </section>
+  <div class="container">
+    <div class="row no-gutters">
+      <div class="col-lg-8">
+          <div id="plot1"></div>
+      </div>
+      <div class="col-lg-4">
+          <div id="plot2"></div>
+        </div>
+        </div>
+  <section class="screen">
+   <div class="content">
+   <p>This next chart shows all of the Allied Powers involvemnt from the sky. The official start date of WWII is September 1, 1939 and you can see Breat Britian was the only country to fly bombing missions that year for a total of 41. The United States didn't surpass the British in number of flight missions until 1943. Although the B17 was developed in 1938. The U.S. Army Air Corps. acquired its first 20 B17 bombers in 1940 and the aircraft wasn't used in a mission until July 1941. That mission was unsuccessful.</p>
+   </div>
+  </section>
+  <section class="screen">
+   <div class="content">
+   <p></p>
+   </div>
+  </section>
+ <div id="plot3"></div>
+
+  <!-- Leaflet JavaScript -->
+  <script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/wwii_map.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/globe.js') }}"></script>
+  <script type="text/javascript"> var imagePath = "{{ url_for('static', filename='world_states_green.jpg') }}" </script>
+  <!-- API Key -->
+  <script src="{{ url_for('static', filename='js/config.js') }}"></script>
+</body>
+</html>
